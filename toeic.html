@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tính điểm Toeic</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_YRvfDYI8YZ7C25ljOfyU4");
+   })();
+</script>
+<script>
+function myFunction() {
+  var numL = parseInt(document.getElementById("listening").value);
+  var numR = parseInt(document.getElementById("reading").value);
+  var uname = document.getElementById("uname").value;
+  
+  var minL=0, maxL=0;
+  var minR=0, maxR=0;
+  var min=0, max=0;
+  
+  if(document.getElementById("uname").value == '' || document.getElementById("listening").value == '' || document.getElementById("reading").value == ''){
+	alert("Nhập đầy đủ thông tin đi mà!");
+	return;
+  }
+  
+  //Listening
+  if(numL>=16 && numL<=20){
+		minL = 55;
+		maxL = 100;
+  }
+  
+  if(numL>=21 && numL<=25){
+		minL = 80;
+		maxL = 125;
+  }
+  
+  if(numL>=26 && numL<=30){
+		minL = 105;
+		maxL = 155;
+  }
+  
+  if(numL>=31 && numL<=35){
+		minL = 135;
+		maxL = 190;
+  }
+  if(numL>=36 && numL<=40){
+		minL = 170;
+		maxL = 225;
+  }
+  if(numL>=41 && numL<=45){
+		minL = 210;
+		maxL = 260;
+  }
+  if(numL>=46 && numL<=50){
+		minL = 240;
+		maxL = 290;
+  }
+  if(numL>=51 && numL<=55){
+		minL = 270;
+		maxL = 325;
+  }
+  if(numL>=56 && numL<=60){
+		minL = 305;
+		maxL = 350;
+  }
+  if(numL>=61 && numL<=65){
+		minL = 330;
+		maxL = 375;
+  }
+  if(numL>=66 && numL<=70){
+		minL = 350;
+		maxL = 400;
+  }
+  if(numL>=71 && numL<=75){
+		minL = 385;
+		maxL = 420;
+  }
+  if(numL>=76 && numL<=80){
+		minL = 400;
+		maxL = 450;
+  }
+  if(numL>=81 && numL<=85){
+		minL = 425;
+		maxL = 470;
+  }
+  if(numL>=86 && numL<=90){
+		minL = 450;
+		maxL = 490;
+  }
+  if(numL>=91 && numL<=95){
+		minL = 465;
+		maxL = 495;
+  }
+  if(numL>=96 && numL<=100){
+		minL = 485;
+		maxL = 495;
+  }
+  
+  
+  //Reading   
+  if(numR>=16 && numR<=20){
+		minR = 35;
+		maxR = 70;
+  }
+  if(numR>=21 && numR<=25){
+		minR = 50;
+		maxR = 90;
+  }
+  if(numR>=26 && numR<=30){
+		minR = 70;
+		maxR = 115;
+  }
+  if(numR>=31 && numR<=35){
+		minR = 95;
+		maxR = 140;
+  }
+  if(numR>=36 && numR<=40){
+		minR = 120;
+		maxR = 170;
+  }
+  if(numR>=41 && numR<=45){
+		minR = 150;
+		maxR = 200;
+  }
+  if(numR>=46 && numR<=50){
+		minR = 180;
+		maxR = 230;
+  }
+  if(numR>=51 && numR<=55){
+		minR = 210;
+		maxR = 260;
+  }
+  if(numR>=56 && numR<=60){
+		minR = 240;
+		maxR = 285;
+  }
+  if(numR>=61 && numR<=65){
+		minR = 265;
+		maxR = 315;
+  }
+  if(numR>=66 && numR<=70){
+		minR = 295;
+		maxR = 350;
+  }
+  if(numR>=71 && numR<=75){
+		minR = 330;
+		maxR = 375;
+  }
+  if(numR>=76 && numR<=80){
+		minR = 355;
+		maxR = 405;
+  }
+  if(numR>=81 && numR<=85){
+		minR = 385;
+		maxR = 430;
+  }
+  if(numR>=86 && numR<=90){
+		minR = 410;
+		maxR = 450;
+  }
+  if(numR>=91 && numR<=95){
+		minR = 430;
+		maxR = 475;
+  }
+  if(numR>=96 && numR<=100){
+		minR = 455;
+		maxR = 495;
+  }
+  
+  if(numL<16 || numR<16){
+	alert("Nghỉ khỏe luôn bạn ơi. Ôn lại nhé!");
+	return;
+  }
+  
+  if(numL>90 || numR>90){
+	alert("Bạn là Thánh rồi!");
+  }
+	min = minL + minR;
+	max = maxL + maxR;
+	
+	var average = (min+max)/2;
+	document.getElementById('numL').innerHTML = numL;
+	document.getElementById('numR').innerHTML = numR;
+	document.getElementById('minL').innerHTML = minL;
+	document.getElementById('maxL').innerHTML = maxL;
+	document.getElementById('minR').innerHTML = minR;
+	document.getElementById('maxR').innerHTML = maxR;
+	document.getElementById('min').innerHTML = min;
+	document.getElementById('max').innerHTML = max;
+	document.getElementById('average').innerHTML = average;
+	document.getElementById('result').style.visibility="visible";
+	
+
+	// Data which will write in a file. 
+	var data = "Ho ten: " +  uname + ", " + "So cau Listening: " +  numL + ", " + "So cau Reading: " +  numR + ", " + "Diem TB: " +  average;
+	  
+	  
+	// JScript
+	var templateParams = {
+		name: uname,
+		notes: data
+	};
+ 
+	emailjs.send('tinhdiemtoeic2019', 'template_QkmIcCp5', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+	
+	
+}
+</script>
+</head>
+<body style="background-image: url('toeic2.jpg'); background-size: cover;">
+<center>
+<div class="col-md-6" style="padding-top:12px">
+	<h2 class="bg-danger text-white" style="color:white; font-weight:bolder">Tính điểm trung bình Toeic 2019</h2>
+	<div class="col-md-8">
+	<form action="#">
+		<div align="left" class="form-group">
+			<label class="bg-info text-white" for="uname" style="color:white; font-weight:bolder; font-style:italic; font-size: 20px">Tên:</label>
+			<input type="text" class="form-control" id="uname">
+		</div>
+		<div align="left" class="form-group">
+			<label class="bg-info text-white" for="email" style="color:white; font-weight:bolder; font-style:italic; font-size: 20px">Số câu đúng Listening:</label>
+			<input type="text" class="form-control" id="listening">
+		</div>
+		<div align="left" class="form-group">
+			<label class="bg-info text-white" for="pwd" style="color:white; font-weight:bolder; font-style:italic; font-size: 20px">Số câu đúng Reading:</label>
+			<input  type="text" class="form-control" id="reading">
+		</div>
+		<button type="submit" onclick="myFunction()" title="Bấm đi !" style="font-size: 18px" class="btn btn-primary">Bấm vô để tính nè !</button>
+	</form>
+	</div>
+</div>
+
+<div id="result" class="col-md-5" style="padding-top:20px; visibility: hidden;">
+<table class="table table-dark table-hover"">
+    <thead>
+      <tr>
+		<th></th>
+		<th>Số câu đúng</th>
+        <th>Min</th>
+        <th>Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+		<td>Listening</td>
+		<td id="numL"></td>
+        <td id="minL"></td>
+        <td id="maxL"></td>
+      </tr>
+	  <tr>
+		<td>Writing</td>
+		<td id="numR"></td>
+        <td id="minR"></td>
+        <td id="maxR"></td>
+      </tr>
+	  <tr>
+		<td>Tổng điểm</td>
+        <td></td>
+        <td id="min"></td>
+        <td id="max"></td>
+      </tr>
+	  <tr>
+		<td>Trung bình</td>
+        <td style="font-weight:bolder" id="average"></td>
+		<td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</center>
+</body>
+</html>
